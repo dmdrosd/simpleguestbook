@@ -1,0 +1,26 @@
+﻿@model SimpleGuestBook.Models.GuestbookEntry
+
+<div class="container">
+    @using (Html.BeginForm("CreateMessagePartial", "Home"))
+    { 
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <fieldset>
+            <b>Ваше имя:</b> <br /> <input class="form-control" type="text" name="Name" style="min-width: 100%" />
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            <br />
+            <b>Отзыв:</b><br />
+            <textarea class="form-control" name="Message" rows="5" >
+        </textarea>
+            @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+            <br />
+            <input class="center-block" type="submit" value="Оставить запись" />
+        </fieldset>
+    }
+</div>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div>
+        @Html.ActionLink("Назад", "Index")
+    </div>
+}

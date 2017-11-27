@@ -16,14 +16,53 @@ namespace SimpleGuestBook.Controllers
             var entries = db.GuestbookEntries;
             return View(entries);
         }
-        
-        [HttpPost]
-        public ActionResult Create(GuestbookEntry entry)
+
+        public ActionResult CreateMessagePartial()
         {
-            entry.DateAdded = DateTime.Now;
-            db.GuestbookEntries.Add(entry);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            return PartialView();
         }
+
+        [HttpPost]
+        public ActionResult CreateMessagePartial(GuestbookEntry entry)
+        {
+            if (ModelState.IsValid)
+            {
+                entry.DateAdded = DateTime.Now;
+                db.GuestbookEntries.Add(entry);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                // validation error
+                //return View();
+
+                return View();
+            }
+        }
+
+
+        //[HttpPost]
+        //public ActionResult Create(GuestbookEntry entry)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        entry.DateAdded = DateTime.Now;
+        //        db.GuestbookEntries.Add(entry);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    else
+        //    {
+        //        // validation error
+        //        //return View();
+
+        //        return View();
+        //    }
+        //}
+
+
     }
+
+
 }

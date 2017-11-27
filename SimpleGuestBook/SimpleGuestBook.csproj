@@ -160,6 +160,14 @@
     <Compile Include="Migrations\201711271654122_InitialCreate.Designer.cs">
       <DependentUpon>201711271654122_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711271939226_DataInit.cs" />
+    <Compile Include="Migrations\201711271939226_DataInit.Designer.cs">
+      <DependentUpon>201711271939226_DataInit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711271947253_DataInitMaxLength.cs" />
+    <Compile Include="Migrations\201711271947253_DataInitMaxLength.Designer.cs">
+      <DependentUpon>201711271947253_DataInitMaxLength.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\GuestbookEntry.cs" />
     <Compile Include="Models\GuestBookModel.cs" />
@@ -214,6 +222,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\CreateMessagePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -226,6 +235,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711271654122_InitialCreate.resx">
       <DependentUpon>201711271654122_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711271939226_DataInit.resx">
+      <DependentUpon>201711271939226_DataInit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711271947253_DataInitMaxLength.resx">
+      <DependentUpon>201711271947253_DataInitMaxLength.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
