@@ -1,0 +1,33 @@
+﻿@model IEnumerable<SimpleGuestBook.Models.GuestbookEntry>
+
+@{
+    ViewBag.Title = "Гостевая книга";
+}
+
+<div class="text-center">
+    <h1>Гостевая книга</h1>
+</div>
+
+@foreach (var item in Model)
+{
+    <div class="container">
+        <h3><b>@item.Name</b></h3>
+        <p>@item.Message</p>
+    </div>
+}
+
+<br />
+<div class="container">
+    @using (Html.BeginForm("Create", "Home", FormMethod.Post))
+    {
+        <fieldset>
+            <b>Ваше имя:</b> <br /> <input class="form-control" type="text" name="Name" style="min-width: 100%" />
+            <br />
+            <b>Отзыв:</b><br />
+            <textarea class="form-control" name="Message" rows="5" cols="40">
+        </textarea>
+            <br />
+            <input class="center-block" type="submit" value="Оставить запись" />
+        </fieldset>
+    }
+</div>
