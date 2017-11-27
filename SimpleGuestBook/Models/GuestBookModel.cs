@@ -1,12 +1,9 @@
 using System;
 using System.Data.Entity.Migrations;
+using System.Data.Entity;
 
 namespace SimpleGuestBook.Models
 {
-    using System.Data.Entity;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Linq;
-
     public partial class GuestBookModel : DbContext
     {
         static GuestBookModel()
